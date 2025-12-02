@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter Menu Coming Soon - Birbante</title>
+    <meta name="description" content="Exciting new winter menu coming soon to Birbante Restaurant">
+
+    <!-- DaisyUI + Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Brand Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,600&family=Darker+Grotesque:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* Birbante Brand Colors */
+            --white-hsl: 45.45, 100%, 93.53%;
+            --black-hsl: 2.58, 60.78%, 30%;
+            --accent-hsl: 9.75, 97.13%, 59.02%;
+            --lightAccent-hsl: 163.33, 58.06%, 48.63%;
+            --darkAccent-hsl: 54.9, 89.47%, 33.53%;
+
+            --brand-white: hsla(var(--white-hsl), 1);
+            --brand-black: hsla(var(--black-hsl), 1);
+            --brand-accent: hsla(var(--accent-hsl), 1);
+            --brand-light-accent: hsla(var(--lightAccent-hsl), 1);
+            --brand-dark-accent: hsla(var(--darkAccent-hsl), 1);
+        }
+
+        body {
+            font-family: 'Darker Grotesque', sans-serif;
+            font-weight: 500;
+            background-color: #fff7df;
+            min-height: 100vh;
+            overflow: hidden;
+            color: var(--brand-black);
+            position: relative;
+        }
+
+        /* Film grain texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+            pointer-events: none;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+
+        .logo {
+            max-width: 250px;
+            height: auto;
+            margin: 0 auto 1.5rem;
+            display: block;
+        }
+
+        .new-badge {
+            display: inline-block;
+            background-color: var(--brand-accent);
+            color: #fff;
+            font-family: 'Darker Grotesque', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .main-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 6rem;
+            line-height: 1.2em;
+            color: var(--brand-black);
+        }
+
+        .subtitle {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--brand-black);
+            opacity: 0.5;
+            font-size: 0.9rem;
+        }
+
+        .countdown-container {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid hsla(var(--accent-hsl), 0.2);
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .countdown {
+            font-size: 4rem;
+            font-weight: 700;
+            font-family: 'Darker Grotesque', sans-serif;
+        }
+
+        .countdown-label {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--brand-black);
+            opacity: 0.4;
+            margin-top: 0.5rem;
+        }
+
+
+        .reserve-button {
+            display: inline-block;
+            background-color: var(--brand-accent);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-family: 'Darker Grotesque', sans-serif;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .reserve-button:hover {
+            background-color: hsla(var(--accent-hsl), 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive typography */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 4rem;
+            }
+
+            .countdown {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 3rem;
+            }
+
+            .countdown {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="min-h-screen flex flex-col items-center justify-center p-6 relative" style="z-index: 10;">
+        <!-- Main Content -->
+        <div class="text-center z-10">
+            <!-- Main Content -->
+            <div class="text-center z-10">
+                <img src="https://images.squarespace-cdn.com/content/v1/66fdbdb902ae633cd7763ae2/f31dfbd6-a996-491c-ab85-9f3d4b221946/wordmark.png?format=1500w"
+                    alt="Birbante Wordmark" class="logo">
+                <div class="new-badge">New</div>
+                <h1 class="main-title text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+                    Winter Menu<br>
+                </h1>
+                <h2 class="subtitle">Coming Soon</h2>
+
+                <div class="accent-line"></div>
+
+                <!-- Countdown -->
+                <div class="countdown-container max-w-4xl mx-auto mt-8">
+                    <div class="grid grid-flow-col gap-5 text-center auto-cols-max justify-center">
+                        <div class="flex flex-col">
+                            <span class="countdown font-mono" style="color: var(--brand-accent);">
+                                <span id="days" style="--value:0;"></span>
+                            </span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="countdown font-mono" style="color: var(--brand-accent);">
+                                <span id="hours" style="--value:0;"></span>
+                            </span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="countdown font-mono" style="color: var(--brand-accent);">
+                                <span id="minutes" style="--value:0;"></span>
+                            </span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="countdown font-mono" style="color: var(--brand-accent);">
+                                <span id="seconds" style="--value:0;"></span>
+                            </span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reserve Now Button -->
+                <div class="mt-12">
+                    <a href="https://booking.libroreserve.com/266abd65e9319e1/QC017301457292/seat"
+                        class="reserve-button" target="_blank" rel="noopener noreferrer">
+                        Make a Reservation
+                    </a>
+                </div>
+
+                <!-- Animated Logo -->
+                <div class="mt-8">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66fdbdb902ae633cd7763ae2/5c60cce1-1399-4899-b694-87284ce0b40e/Untitled_Artwork+2.gif?format=1000w"
+                        alt="Birbante Animated Logo" class="logo" style="max-width: 200px;">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Set countdown target date - December 10, 2025 at 5pm
+            const targetDate = new Date('2025-12-10T17:00:00-05:00');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate.getTime() - now;
+
+                if (distance < 0) {
+                    document.getElementById('days').style.setProperty('--value', 0);
+                    document.getElementById('hours').style.setProperty('--value', 0);
+                    document.getElementById('minutes').style.setProperty('--value', 0);
+                    document.getElementById('seconds').style.setProperty('--value', 0);
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').style.setProperty('--value', days);
+                document.getElementById('hours').style.setProperty('--value', hours);
+                document.getElementById('minutes').style.setProperty('--value', minutes);
+                document.getElementById('seconds').style.setProperty('--value', seconds);
+            }
+
+            // Update countdown every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        </script>
+</body>
+
+</html>
